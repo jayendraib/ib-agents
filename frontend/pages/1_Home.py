@@ -587,7 +587,8 @@ st.markdown("""
 
     /* ===== LAUNCH BUTTONS ===== */
     div[data-testid="stHorizontalBlock"] > div:nth-child(1) .stButton > button,
-    div[data-testid="stHorizontalBlock"] > div:nth-child(2) .stButton > button {
+    div[data-testid="stHorizontalBlock"] > div:nth-child(2) .stButton > button,
+    div[data-testid="stHorizontalBlock"] > div:nth-child(3) .stButton > button {
         background: linear-gradient(135deg, #065f46 0%, #0e7490 100%) !important;
         color: #d1fae5 !important;
         border: 1px solid rgba(52,211,153,0.35) !important;
@@ -604,24 +605,42 @@ st.markdown("""
     }
 
     div[data-testid="stHorizontalBlock"] > div:nth-child(1) .stButton > button:hover,
-    div[data-testid="stHorizontalBlock"] > div:nth-child(2) .stButton > button:hover {
+    div[data-testid="stHorizontalBlock"] > div:nth-child(2) .stButton > button:hover,
+    div[data-testid="stHorizontalBlock"] > div:nth-child(3) .stButton > button:hover {
         transform: translateY(-2px) !important;
         box-shadow: 0 8px 30px rgba(16,185,129,0.4), 0 0 20px rgba(6,182,212,0.2), inset 0 1px 0 rgba(255,255,255,0.12) !important;
         border-color: rgba(52,211,153,0.6) !important;
         filter: brightness(1.15) !important;
     }
 
-    /* Locked button */
-    div[data-testid="stHorizontalBlock"] > div:nth-child(3) .stButton > button {
-        background: rgba(30,41,40,0.4) !important;
-        color: #4b5563 !important;
-        border: 1px solid rgba(55,65,81,0.3) !important;
-        border-radius: 0.8rem !important;
-        padding: 0.8rem 1.5rem !important;
-        font-weight: 600 !important;
-        font-size: 0.875rem !important;
-        cursor: not-allowed !important;
-        box-shadow: none !important;
+    /* ===== MARKETING ICON ===== */
+    .tool-icon-wrap.marketing {
+        background: linear-gradient(135deg, rgba(139,92,246,0.2), rgba(168,85,247,0.12));
+        border: 1px solid rgba(139,92,246,0.35);
+        box-shadow: 0 0 25px rgba(139,92,246,0.2), 0 0 50px rgba(139,92,246,0.06), inset 0 1px 0 rgba(255,255,255,0.08);
+        animation: icon-breathe-purple 3.5s ease-in-out infinite;
+    }
+
+    .tool-icon-wrap.marketing .orbit-ring {
+        border-top-color: rgba(139,92,246,0.7);
+        border-right-color: rgba(139,92,246,0.2);
+        box-shadow: 0 0 10px rgba(139,92,246,0.3);
+    }
+
+    .tool-icon-wrap.marketing .orbit-dot::before {
+        content: '';
+        position: absolute;
+        top: 4px; left: 50%;
+        width: 5px; height: 5px;
+        background: #a78bfa;
+        border-radius: 50%;
+        box-shadow: 0 0 6px #a78bfa;
+        transform: translateX(-50%);
+    }
+
+    @keyframes icon-breathe-purple {
+        0%, 100% { box-shadow: 0 0 25px rgba(139,92,246,0.2), 0 0 50px rgba(139,92,246,0.06), inset 0 1px 0 rgba(255,255,255,0.08); }
+        50%       { box-shadow: 0 0 40px rgba(139,92,246,0.38), 0 0 80px rgba(139,92,246,0.12), inset 0 1px 0 rgba(255,255,255,0.12); }
     }
 
     /* ===== SIDEBAR ===== */
@@ -844,26 +863,29 @@ with col2:
 
 with col3:
     st.markdown("""
-        <div class="tool-card-mirror" style="opacity:0.65;">
-            <!-- Floating characters (muted amber) -->
-            <span class="char-float" style="left:15%;bottom:20%;animation-duration:8s;animation-delay:0s;color:rgba(245,158,11,0.18);">?</span>
-            <span class="char-float" style="left:40%;bottom:15%;animation-duration:9s;animation-delay:2s;color:rgba(245,158,11,0.18);">…</span>
-            <span class="char-float" style="left:70%;bottom:25%;animation-duration:7s;animation-delay:1s;color:rgba(245,158,11,0.18);">⊘</span>
+        <div class="tool-card-mirror">
+            <!-- Floating characters (violet) -->
+            <span class="char-float" style="left:14%;bottom:20%;animation-duration:5.5s;animation-delay:0s;color:rgba(139,92,246,0.25);">§</span>
+            <span class="char-float" style="left:35%;bottom:14%;animation-duration:7s;animation-delay:1.4s;color:rgba(139,92,246,0.25);">⚖</span>
+            <span class="char-float" style="left:62%;bottom:26%;animation-duration:6s;animation-delay:0.7s;color:rgba(139,92,246,0.25);">✓</span>
+            <span class="char-float" style="left:80%;bottom:16%;animation-duration:8s;animation-delay:2.2s;color:rgba(139,92,246,0.25);">∅</span>
             <!-- Icon with orbit -->
-            <div class="tool-icon-wrap coming">
+            <div class="tool-icon-wrap marketing">
                 <div class="orbit-ring"></div>
                 <div class="orbit-dot"></div>
-                🚧
+                📋
             </div>
-            <div class="tool-title" style="color:#9ca3af;">Coming Soon</div>
-            <div class="tool-desc">Next-generation zero-code workflow builder. Deploy custom agents with visual pipeline configuration.</div>
+            <div class="tool-title">Marketing Compliance</div>
+            <div class="tool-desc">AI-powered SEBI OBPP advertisement code checker. Evaluate marketing scripts for regulatory compliance instantly.</div>
             <div class="feature-tags">
-                <span class="feature-tag" style="color:#d97706;border-color:rgba(245,158,11,0.2);background:rgba(245,158,11,0.06);">BETA</span>
-                <span class="feature-tag" style="color:#d97706;border-color:rgba(245,158,11,0.2);background:rgba(245,158,11,0.06);">WORKFLOW</span>
+                <span class="feature-tag" style="background:rgba(139,92,246,0.08);color:#c4b5fd;border-color:rgba(139,92,246,0.15);">SEBI</span>
+                <span class="feature-tag" style="background:rgba(139,92,246,0.08);color:#c4b5fd;border-color:rgba(139,92,246,0.15);">OBPP</span>
+                <span class="feature-tag" style="background:rgba(139,92,246,0.08);color:#c4b5fd;border-color:rgba(139,92,246,0.15);">AI</span>
             </div>
         </div>
     """, unsafe_allow_html=True)
-    st.button("🔒  Locked", key="btn_coming2", use_container_width=True, disabled=True)
+    if st.button("▶  Launch Agent", key="btn_marketing", use_container_width=True):
+        st.switch_page("pages/4_Marketing_Compliance.py")
 
 # ========== FOOTER ==========
 st.markdown("""
