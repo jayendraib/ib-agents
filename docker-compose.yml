@@ -1,0 +1,21 @@
+services:
+  ib-agents:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: ib-agents:latest
+    container_name: ib-agents
+    ports:
+      - "8501:8501"
+    volumes:
+      - ib-agents-data:/app/data
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8501/_stcore/health"]
+      interval: 30s
+      timeout: 10s
+      start_period: 15s
+      retries: 3
+
+volumes:
+  ib-agents-data:
