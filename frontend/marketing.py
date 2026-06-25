@@ -18,8 +18,8 @@ RULEBOOK_PATH = os.getenv(
 
 # ==================== CONFIG ====================
 class Config:
-    LITELLM_BASE_URL = os.getenv("LITELLM_BASE_URL", "https://lite-llm.indiabonds.com")
-    LITELLM_API_KEY  = os.getenv("LITELLM_API_KEY",  "sk-HkWnhTWPsav2hapIaC4y8Q")
+    LITELLM_BASE_URL = os.getenv("LITELLM_BASE_URL", "")
+    LITELLM_API_KEY  = os.getenv("LITELLM_API_KEY",  "")
     MODEL       = "gpt-4.1"
     TEMPERATURE = 0.0
     MAX_TOKENS  = 10000
